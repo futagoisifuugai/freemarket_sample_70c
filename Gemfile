@@ -71,3 +71,11 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'unicorn', '5.4.1'
+gem 'fog-aws'
+gem 'carrierwave'
+
+gem 'font-awesome-sass'
+gem 'devise'
+gem 'pry-rails'
+gem 'mini_magick'
+gem 'jquery-rails'
