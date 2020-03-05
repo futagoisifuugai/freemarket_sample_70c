@@ -142,21 +142,9 @@
 
 ### Association
 has_many :products
-has_many :brands, through: :categorie_brands
-has_many :categorie_brands
 ## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 ### Association
 - has_many :products
-- has_many :categories, through: :categorie_brands
-- has_many :categorie_brands
-## categorie_brandsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|category_id|references|null: false, foreign_key: true|
-|brand_id|references|null: false, foreign_key: true|
-### Association
-- belongs_to :categories
-- belongs_to :brands
