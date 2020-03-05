@@ -38,10 +38,11 @@
 |scheduled_sending_date|integer|null: false|
 |price|integer|null: false|
 |buyer_id|references|null: false,foreign_key: { to_table: :users }|
-|buyed-time|integer||
+|buyed_time|integer||
 |payment_method|string|null: false|
 |payment_status|integer|null: false|
 |recieving_status|string|null: false|
+|image_id|references|null: false,foreign_key:true|
 ### Association
 - has_many :images, dependent: :destroy
 - accepts_nested_attributes_for :images, allow_destroy: true
@@ -55,7 +56,7 @@
 - belongs_to :size, optional: true
 - belongs_to :condition
 - belongs_to :sending_method
-## user-adressesテーブル
+## user_adressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |first_name|string|null: false, limit: 50|
@@ -68,6 +69,7 @@
 |city_adress|string|null: false, limit: 20|
 |building|string|limit: 50|
 |phone_number|integer|limit: 11|
+|area_id|references|null: false, foreign_key: true| 
 ### Association
 - belongs_to :user, inverse_of: :user_address
 - belongs_to :area
@@ -80,7 +82,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :product
-## identity-informationsテーブル
+## identity_informationsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |postal_code|integer|null: false|
@@ -88,6 +90,7 @@
 |city|string|null: false|
 |city_adress|string|null: false|
 |building|string|null: false|
+|area_id|references|null: false, foreign_key: true| 
 ### Association
 - belongs_to :area
 ## areasテーブル
@@ -101,11 +104,11 @@
 ## imageテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text|null: false|
-product_id|references|null: false, foreign_key: true|
+|image|string|null: false|
+|product_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :product
-## credit-cardsテーブル
+## credit_cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |card_number|integer|null: false|
@@ -119,7 +122,7 @@ product_id|references|null: false, foreign_key: true|
 |value|string|null: false|
 ### Association
 - has_many :products
-## sending-methodsテーブル
+## sending_methodsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -135,8 +138,8 @@ product_id|references|null: false, foreign_key: true|
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|sub|string||
-|sub_sub|string||
+|ancestry|string||
+
 ### Association
 has_many :products
 has_many :brands, through: :categorie_brands
@@ -149,7 +152,7 @@ has_many :categorie_brands
 - has_many :products
 - has_many :categories, through: :categorie_brands
 - has_many :categorie_brands
-## categorie-brandsテーブル
+## categorie_brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |category_id|references|null: false, foreign_key: true|
