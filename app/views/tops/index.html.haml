@@ -3,13 +3,13 @@
     .header__main--top
       .header__main--top-icon
         = link_to url="#" do
-          %img{height:"120",src:"/assets/furima.svg",width:"150"}
+          = image_tag 'furima.svg', height: '120', width: '150', class: 'image1'
       .header__main--top-searchbox
         %form
           %input{type:"text",class:"left"}
           %input{type:"submit",value:"",class:"right"}
             = link_to url="#" do
-              %img{height:"20px",src:"/assets/megane.svg",width:"20px"}
+              = image_tag 'megane.svg',height: '20px', width: '20px', class: 'image2'
     .header__main--bottom
       .header__main--bottom-left
         %ul.left__items
@@ -54,9 +54,9 @@
         FURIMAは誰でも簡単に出品・購入のできるフリマアプリです
       .main__top--content__btn
         =link_to url="#" ,class:"abtn"do
-          %img{height:"120",src:"/assets/app.svg",width:"150"}
-        =link_to url="#" ,class:"bbtn" do
-          %img{height:"120",src:"/assets/google.svg",width:"150"}
+          = image_tag 'app.svg',  height: '120', width: '150', class: 'iamge3'
+        =link_to url="#" ,class:"bbtn"do
+          = image_tag 'google.svg',  height: '120', width: '150', class: 'iamge3'
   .main__second
     .main__second--title
       FURIMAが選ばれる３つの理由
@@ -67,7 +67,7 @@
           %span.lists__picture--number
             1
           .lists__picture--img
-          %img{height:"200px",src:"/assets/pict-reason-01.jpg",width:"200px"}
+            = image_tag 'pict-reason-01.jpg',  height: '200px', width: '200px', class: 'iamge4'
         .lists__title
           %span
             3分
@@ -79,7 +79,7 @@
           %span.lists__picture--number
             2
           .lists__picture--img
-            %img{height:"200px",src:"/assets/pict-reason-02.jpg",width:"200px"}
+            = image_tag 'pict-reason-02.jpg',  height: '200px', width: '200px', class: 'iamge5'
         .lists__title
           %span
             シンプル
@@ -91,7 +91,7 @@
           %span.lists__picture--number
             3
           .lists__picture--img
-            %img{height:"200px",src:"/assets/pict-reason-03.jpg",width:"200px"}
+            = image_tag 'pict-reason-03.jpg',  height: '200px', width: '200px', class: 'iamge6'
         .lists__title
           手数料
           %span
@@ -110,9 +110,9 @@
         ほしかったあの商品に出会えるかも知れません
       .main__third--content__btn
         =link_to url="#" ,class:"abtn"do
-          %img{height:"120",src:"/assets/app.svg",width:"150"}
+          = image_tag 'app.svg',  height: '120', width: '150', class: 'iamge3'
         =link_to url="#" ,class:"bbtn" do
-          %img{height:"120",src:"/assets/google.svg",width:"150"}
+          = image_tag 'google.svg',  height: '120', width: '150', class: 'iamge3'
   .main__fourth
     .main__fourth--title
       FURIMAの特徴
@@ -121,7 +121,7 @@
       %li.lists
         .lists__picture
           .lists__picture--img
-            %img{height:"100%",src:"/assets/icon-01.png",width:"100%"}
+            = image_tag 'icon-01.png',  height: '100%', width: '100%', class: 'iamge7'
         .lists__title
           簡単に売り買いできる
         .lists__text
@@ -129,7 +129,7 @@
       %li.lists
         .lists__picture
           .lists__picture--img
-            %img{height:"100%",src:"/assets/icon-03.png",width:"100%"}
+            = image_tag 'icon-03.png',  height: '100%', width: '100%', class: 'iamge8'
         .lists__title
           売上金は即日振込に対応
         .lists__text
@@ -137,7 +137,7 @@
       %li.lists 
         .lists__picture
           .lists__picture--img
-            %img{height:"100%",src:"/assets/icon-04.png",width:"100%"}
+            = image_tag 'icon-04.png',  height: '100%', width: '100%', class: 'iamge9'
         .lists__title
           様々な支払いに対応
         .lists__text
@@ -153,7 +153,7 @@
         .products
           =link_to url="#",class:"products__item" do
             .products__item-image
-              %img{height:"100%",src:"/assets/sakana.png",width:"100%"}
+              = image_tag 'sakana.png',  height: '100%', width: '100%', class: 'iamge10'
             .products__item-body
               .products__item-body__name
                 product3
@@ -171,7 +171,7 @@
         .products
           =link_to url="#",class:"products__item" do
             .products__item-image
-              %img{height:"100%",src:"/assets/sakana.png",width:"100%"}
+              = image_tag 'sakana.png',  height: '100%', width: '100%', class: 'iamge10'
             .products__item-body
               .products__item-body__name
                 product3
@@ -189,7 +189,7 @@
         .products
           =link_to url="#",class:"products__item" do
             .products__item-image
-              %img{height:"100%",src:"/assets/sakana.png",width:"100%"}
+              = image_tag 'sakana.png',  height: '100%', width: '100%', class: 'iamge10'
             .products__item-body
               .products__item-body__name
                 product3
@@ -215,7 +215,7 @@
         .products
           =link_to url="#",class:"products__item" do
             .products__item-image
-              %img{height:"100%",src:"/assets/sakana.png",width:"100%"}
+              = image_tag 'sakana.png',  height: '100%', width: '100%', class: 'iamge10'
             .products__item-body
               .products__item-body__name
                 product3
@@ -233,7 +233,7 @@
         .products
           =link_to url="#",class:"products__item" do
             .products__item-image
-              %img{height:"100%",src:"/assets/sakana.png",width:"100%"}
+              = image_tag 'sakana.png',  height: '100%', width: '100%', class: 'iamge10'
             .products__item-body
               .products__item-body__name
                 product3
@@ -251,7 +251,7 @@
         .products
           =link_to url="#",class:"products__item" do
             .products__item-image
-              %img{height:"100%",src:"/assets/sakana.png",width:"100%"}
+              = image_tag 'sakana.png',  height: '100%', width: '100%', class: 'iamge10'
             .products__item-body
               .products__item-body__name
                 product3
@@ -274,9 +274,9 @@
       今すぐダウンロード！
     .app__main--bottom
       =link_to url="#" ,class:"cbtn"do
-        %img{height:"120",src:"/assets/app.svg",width:"150"}
+        = image_tag 'app.svg',  height: '120', width: '150', class: 'iamge3'
       =link_to url="#" ,class:"dbtn" do
-        %img{height:"120",src:"/assets/google.svg",width:"150"}
+        = image_tag 'google.svg',  height: '120', width: '150', class: 'iamge3'
 .footer
   %ul.contents
     %li.content
@@ -320,6 +320,6 @@
             お知らせ
   .footer__logo
     =link_to url="#" ,class:"jbtn"do
-      %img{height:"120",src:"/assets/furima2.svg",width:"150"}
+      = image_tag 'furima2.svg',  height: '120', width: '150', class: 'iamge11'
     %p
       ©️FURIMA
