@@ -153,7 +153,7 @@
 }
 .main{
   &__top{
-    background-image:url('/assets/download.jpg');
+    background-image:image-url('download.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     width:100%;
