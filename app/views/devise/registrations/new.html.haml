@@ -1,0 +1,99 @@
+.wrapper
+  .single-header-user
+    .single-header-user-icon-list
+      .single-header__icon-user
+        = image_tag 'furima.svg', height: '80', width: '185'
+  .single-main-user
+    .single-main-user-form
+      .single-main-user-form__title
+        会員情報入力
+      .single-main-user-form__input
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .field
+            .field-label
+              = f.label :ニックネーム
+              .hissu
+                必須
+            .field-input
+              = f.text_field :nickname,placeholder: "例）フリマ太郎"
+          .field
+            .field-label
+              = f.label :メールアドレス
+              .hissu
+                必須
+            .field-input
+              = f.text_field :email,placeholder: "PC : 携帯どちらでも可"
+          .field
+            .field-label
+              = f.label :パスワード
+              .hissu
+                必須
+            .field-input
+              = f.text_field :password,placeholder: "7文字以上の半角英数字"
+          .field
+            .field-label
+              = f.label :パスワード確認
+              .hissu
+                必須
+            .field-input
+              = f.text_field :password_confirmation,placeholder: "7文字以上の半角英数字"
+              .field-input-test
+                ※英字と数字の両方を含めて設定してください
+            .single-main-user-form-verification
+              本人確認
+            .single-main-user-form-verification__content
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+            .field-label
+              = f.label :"お名前(全角)"
+              .hissu
+                必須
+            .single-main-user-form-fullname
+              .field-inputs
+                = f.text_field :first_name,placeholder: "例）山田"
+              .field-inputs
+                = f.text_field :last_name,placeholder: "例）彩"
+            .field-label
+              = f.label :"お名前カナ(全角)"
+              .hissu
+                必須
+            .single-main-user-form-fullname
+              .field-inputs
+                = f.text_field :first_name_kana,placeholder: "例）ヤマダ"
+              .field-inputs
+                = f.text_field :last_name_kana,placeholder: "例）アヤ"
+            .field-label
+              = f.label :生年月日
+              .hissu
+                必須
+            .single-main-user-form-birthday
+              .field-inputs
+                = f.date_select :birthday, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1990, 1, 1)
+                -# != sprintf(f.date_select(:birthday, prefix:'birthday',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
+            .single-main-user-form-verification__contents-list
+              ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+            .single-main-user-form-verification__content-terms
+              「次へ進む」のボタンを押すことにより、
+              = link_to "#",class:"btn" do
+                利用規約
+              .plas
+                に同意したものとみなします
+          .actions
+            = f.submit "登録する", class: 'btn'
+          .single-main-user-form-verification-me
+            = link_to "#" ,class: "me-btn" do
+              本人情報の登録について〉
+  .single-fotter
+    %ul.clearfix
+      %li.footer-list
+        =link_to "#",class:"a" do
+          プライバシーポリシー
+      %li.footer-list
+        =link_to "#",class:"a" do
+          フリマ利用規約
+      %li.footer-list
+        =link_to "#", class: "a" do
+          特定商取引に関する表記
+    .fotter-pict
+      = image_tag 'furima.svg', height: '60', width: '80'
+    

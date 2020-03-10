@@ -3,7 +3,7 @@
     .header__main--top
       .header__main--top-icon
         = link_to url="#" do
-          = image_tag 'furima.svg', height: '120', width: '150', class: 'image1'
+          = image_tag 'furima.svg', height: '100', width: '120', class: 'image1'
       .header__main--top-searchbox
         %form
           %input{type:"text",class:"left"}
@@ -39,11 +39,19 @@
           = link_to url="#" do
             ブランド
       .header__main--bottom-right
+      -if user_signed_in? 
         .left-name
-          = link_to url="#" do
+          = link_to destroy_user_session_path,method: :delete do
+            ログアウト
+        .right-name
+          = link_to user_adresses_path do
+            マイページ
+      -else
+        .left-name
+          = link_to new_user_session_path do
             ログイン
         .right-name
-          = link_to url="#" do
+          = link_to new_user_registration_path do
             新規会員登録
 .main
   .main__top
