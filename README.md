@@ -34,7 +34,7 @@
 |description|text|null: false|
 |postage_burden|integer|null: false|
 |sending_method-id|references|null: false,foreign_key:true|
-|area_id|references|null: false,foreign_key:true|
+|area|text|null:false|
 |scheduled_sending_date|integer|null: false|
 |price|integer|null: false|
 |buyer_id|references|null: false,foreign_key: { to_table: :users }|
@@ -52,7 +52,6 @@
 - has_one :buyer_evaluation
 - belongs_to :categorie
 - belongs_to :brand, optional: true
-- belongs_to :area
 - belongs_to :size, optional: true
 - belongs_to :condition
 - belongs_to :sending_method
@@ -69,10 +68,8 @@
 |city_adress|string|null: false, limit: 20|
 |building|string|limit: 50|
 |phone_number|integer|limit: 11|
-|area_id|references|null: false, foreign_key: true| 
 ### Association
 - belongs_to :user, inverse_of: :user_address
-- belongs_to :area
 ## commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -90,17 +87,7 @@
 |city|string|null: false|
 |city_adress|string|null: false|
 |building|string|null: false|
-|area_id|references|null: false, foreign_key: true| 
 ### Association
-- belongs_to :area
-## areasテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-### Association
-- has_many :products
-- has_many :user_addresses
-- has_many :identity_informations
 ## imageテーブル
 |Column|Type|Options|
 |------|----|-------|
