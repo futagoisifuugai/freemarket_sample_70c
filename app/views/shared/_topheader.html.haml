@@ -1,0 +1,55 @@
+.header
+  .header__main
+    .header__main--top
+      .header__main--top-icon
+        = link_to url="#" do
+          = image_tag 'furima.svg', height: '100', width: '120', class: 'image1'
+      .header__main--top-searchbox
+        %form
+          %input{type:"text",class:"left"}
+          %input{type:"submit",value:"",class:"right"}
+            = link_to url="#" do
+              = image_tag 'megane.svg',height: '20px', width: '20px', class: 'image2'
+    .header__main--bottom
+      .header__main--bottom-left
+        %ul.left__items
+          %li.left__item
+            = link_to url="#"  do
+              カテゴリー
+            %ul.left__item--left
+              %li.left__item--left__items
+                = link_to url="#" do
+                  レディース
+                %ul.left__item--left__children
+                  %li.left__item--left__children__child
+                    = link_to url="#" do
+                      トップス
+                    %ul.left__item--left__grand__children
+                      %li.left__item--left__grand__children-child
+                        = link_to url="#" do
+                          %p
+                            Tシャツ
+                        = link_to url="#" do
+                          %p
+                            ポロシャツ
+                        = link_to url="#" do
+                          タンクトップ
+
+        .right-item
+          = link_to url="#" do
+            ブランド
+      .header__main--bottom-right
+      -if user_signed_in? 
+        .left-name
+          = link_to destroy_user_session_path,method: :delete do
+            ログアウト
+        .right-name
+          = link_to user_adresses_path do
+            マイページ
+      -else
+        .left-name
+          = link_to new_user_session_path do
+            ログイン
+        .right-name
+          = link_to new_user_registration_path do
+            新規会員登録
