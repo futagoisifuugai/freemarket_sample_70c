@@ -155,7 +155,7 @@
 }
 .main{
   &__top{
-    background-image:url('download.jpg');
+    background-image:image-url('download.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     width:100%;
@@ -262,7 +262,7 @@
     }
   }
   &__third{
-    background-image:url('/assets/download-1.jpg');
+    background-image:image-url('download-1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     width:100%;
@@ -482,7 +482,7 @@
   }
 }
 .app{
-  background-image:url('/assets/bg-appBanner-pict.jpg');
+  background-image:image-url('bg-appBanner-pict.jpg');
   background-repeat: no-repeat;
   padding: 100px 40px;
   position: relative;
