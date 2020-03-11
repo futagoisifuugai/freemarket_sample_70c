@@ -7,22 +7,46 @@ describe User do
       expect(user).to be_valid
     end
 
-    it "苗字は、全角漢字ではないと通らない" do
+    it "苗字は、空では通らない" do
+      user = build(:user, first_name: "" )
+      user.valid?
+      expect(user.errors[:first_name]).to include("can't be blank", "無効な苗字です")
+    end
+
+    it "苗字は、全角漢字でないと通らない" do
       user = build(:user, first_name: "kana" )
       user.valid?
       expect(user.errors[:first_name]).to include("無効な苗字です")
     end
 
-    it "名前は、全角漢字ではないと通らない" do
+    it "名前は、空では通らない" do
+      user = build(:user, last_name: "")
+      user.valid?
+      expect(user.errors[:last_name]).to include("can't be blank", "無効な名前です")
+    end
+
+    it "名前は、全角漢字でないと通らない" do
       user = build(:user, last_name: nil)
       user.valid?
       expect(user.errors[:last_name]).to include("無効な名前です")
     end
 
-    it "苗字カナは全角カナではないと通らない" do
-      user = build(:user, first_name: "kana")
+    it "苗字カナは空では通らない" do
+      user = build(:user, first_name_kana: "")
       user.valid?
-      expect(user.errors[:first_name]).to include("無効な苗字です")
+      expect(user.errors[:first_name_kana]).to include("can't be blank","無効な苗字です")
+    end
+
+    it "苗字カナは全角カナではないと通らない" do
+      user = build(:user, first_name_kana: "kana")
+      user.valid?
+      expect(user.errors[:first_name_kana]).to include("無効な苗字です")
+    end
+
+    it "名前カナは空では通らない" do
+      user = build(:user, last_name_kana: "")
+      user.valid?
+      expect(user.errors[:last_name_kana]).to include("can't be blank","無効な名前です")
     end
 
     it "名前カナは全角カナではないと通らない" do
@@ -30,11 +54,24 @@ describe User do
       user.valid?
       expect(user.errors[:last_name_kana]).to include("無効な名前です")
     end
+
+    it "メールは空では通らない" do
+      user = build(:user, email: "")
+      user.valid?
+      expect(user.errors[:email]).to include("can't be blank","無効なメールです")
+    end
+
     
     it "メールに＠ドメインではないと通らない" do
       user = build(:user, email: "aaa")
       user.valid?
       expect(user.errors[:email]).to include("無効なメールです")
+    end
+
+    it "パスワードは空だと通らない" do
+      user = build(:user, password: "")
+      user.valid?
+      expect(user.errors[:password]).to include("無効なパスワードです")
     end
 
     it "パスワードは半角英数字７文字以上ではないと通らない" do
