@@ -10,67 +10,67 @@ describe UserAdress do
     it "苗字は、空だと通らない" do
       user_adress = build(:user_adress, first_name: "")
       user_adress.valid?
-      expect(user_adress.errors[:first_name]).to include("can't be blank", "is invalid")
+      expect(user_adress.errors[:first_name]).to include("を入力してください", "は不正な値です")
     end
 
     it "苗字は、全角漢字ではないと通らない" do
       user_adress = build(:user_adress, first_name: "aaa")
       user_adress.valid?
-      expect(user_adress.errors[:first_name]).to include("is invalid")
+      expect(user_adress.errors[:first_name]).to include( "は不正な値です")
     end
 
     it "名前は、空だと通らない" do
       user_adress = build(:user_adress, last_name: "")
       user_adress.valid?
-      expect(user_adress.errors[:last_name]).to include("can't be blank", "is invalid")
+      expect(user_adress.errors[:last_name]).to include("を入力してください", "は不正な値です")
     end
 
     it "名前は、全角漢字ではないと通らない" do
       user_adress = build(:user_adress, last_name: "aaa")
       user_adress.valid?
-      expect(user_adress.errors[:last_name]).to include("is invalid")
+      expect(user_adress.errors[:last_name]).to include( "は不正な値です")
     end
 
     it "苗字カナは空だと通らない" do
       user_adress = build(:user, first_name_kana: "")
       user_adress.valid?
-      expect(user_adress.errors[:first_name_kana]).to include("can't be blank", "無効な苗字です")
+      expect(user_adress.errors[:first_name_kana]).to include("を入力してください", "は不正な値です")
     end
 
     it "苗字カナは全角カナではないと通らない" do
       user_adress = build(:user, first_name_kana: "aaa")
       user_adress.valid?
-      expect(user_adress.errors[:first_name_kana]).to include("無効な苗字です")
+      expect(user_adress.errors[:first_name_kana]).to include( "は不正な値です")
     end
 
     it "名前カナは空だと通らない" do
       user_adress = build(:user, last_name_kana: "")
       user_adress.valid?
-      expect(user_adress.errors[:last_name_kana]).to include("can't be blank","無効な名前です")
+      expect(user_adress.errors[:last_name_kana]).to include("を入力してください", "は不正な値です")
     end
 
     it "名前カナは全角カナではないと通らない" do
       user_adress = build(:user, last_name_kana: "aaa")
       user_adress.valid?
-      expect(user_adress.errors[:last_name_kana]).to include("無効な名前です")
+      expect(user_adress.errors[:last_name_kana]).to include( "は不正な値です")
     end
     
     it "携帯番号は、11桁ではないと通らない" do
       user_adress = build(:user_adress,phone_number: "0000000")
       user_adress.valid?
-      expect(user_adress.errors[:phone_number]).to include("is the wrong length (should be 11 characters)")
+      expect(user_adress.errors[:phone_number]).to include("は11文字で入力してください")
     end
 
     it "郵便番号は、空だと通らない" do
       user_adress = build(:user_adress, postal_code: "")
       user_adress.valid?
-      expect(user_adress.errors[:postal_code]).to include("can't be blank", "is the wrong length (should be 7 characters)")
+      expect(user_adress.errors[:postal_code]).to include("を入力してください", "は7文字で入力してください")
     end
 
     it "郵便番号は、７桁ではないと通らない" do
       user_adress = build(:user_adress, postal_code: "666666")
       user_adress.valid?
-      expect(user_adress.errors[:postal_code]).to include("is the wrong length (should be 7 characters)")
+      expect(user_adress.errors[:postal_code]).to include("は7文字で入力してください")
     end
 
     

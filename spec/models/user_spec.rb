@@ -10,74 +10,74 @@ describe User do
     it "苗字は、空では通らない" do
       user = build(:user, first_name: "" )
       user.valid?
-      expect(user.errors[:first_name]).to include("can't be blank", "無効な苗字です")
+      expect(user.errors[:first_name]).to include("を入力してください", "は不正な値です")
     end
 
     it "苗字は、全角漢字でないと通らない" do
       user = build(:user, first_name: "kana" )
       user.valid?
-      expect(user.errors[:first_name]).to include("無効な苗字です")
+      expect(user.errors[:first_name]).to include("は不正な値です")
     end
 
     it "名前は、空では通らない" do
       user = build(:user, last_name: "")
       user.valid?
-      expect(user.errors[:last_name]).to include("can't be blank", "無効な名前です")
+      expect(user.errors[:last_name]).to include("を入力してください", "は不正な値です")
     end
 
     it "名前は、全角漢字でないと通らない" do
       user = build(:user, last_name: nil)
       user.valid?
-      expect(user.errors[:last_name]).to include("無効な名前です")
+      expect(user.errors[:last_name]).to include("は不正な値です")
     end
 
     it "苗字カナは空では通らない" do
       user = build(:user, first_name_kana: "")
       user.valid?
-      expect(user.errors[:first_name_kana]).to include("can't be blank","無効な苗字です")
+      expect(user.errors[:first_name_kana]).to include("を入力してください", "は不正な値です")
     end
 
     it "苗字カナは全角カナではないと通らない" do
       user = build(:user, first_name_kana: "kana")
       user.valid?
-      expect(user.errors[:first_name_kana]).to include("無効な苗字です")
+      expect(user.errors[:first_name_kana]).to include("は不正な値です")
     end
 
     it "名前カナは空では通らない" do
       user = build(:user, last_name_kana: "")
       user.valid?
-      expect(user.errors[:last_name_kana]).to include("can't be blank","無効な名前です")
+      expect(user.errors[:last_name_kana]).to include("を入力してください", "は不正な値です")
     end
 
     it "名前カナは全角カナではないと通らない" do
       user = build(:user, last_name_kana: "aaa")
       user.valid?
-      expect(user.errors[:last_name_kana]).to include("無効な名前です")
+      expect(user.errors[:last_name_kana]).to include("は不正な値です")
     end
 
     it "メールは空では通らない" do
       user = build(:user, email: "")
       user.valid?
-      expect(user.errors[:email]).to include("can't be blank","無効なメールです")
+      expect(user.errors[:email]).to include("を入力してください", "は不正な値です")
     end
 
     
     it "メールに＠ドメインではないと通らない" do
       user = build(:user, email: "aaa")
       user.valid?
-      expect(user.errors[:email]).to include("無効なメールです")
+      expect(user.errors[:email]).to include("は不正な値です")
     end
 
     it "パスワードは空だと通らない" do
       user = build(:user, password: "")
       user.valid?
-      expect(user.errors[:password]).to include("無効なパスワードです")
+      expect(user.errors[:password]).to include("を入力してください", "は不正な値です")
     end
 
     it "パスワードは半角英数字７文字以上ではないと通らない" do
       user = build(:user, password: "aaa")
       user.valid?
-      expect(user.errors[:password]).to include("無効なパスワードです")
+      expect(user.errors[:password]).to include("は不正な値です")
     end
 
     
