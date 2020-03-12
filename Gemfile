@@ -79,4 +79,5 @@ gem 'devise'
 gem 'pry-rails'
 gem 'mini_magick'
 gem 'jquery-rails'
-
+gem 'devise-i18n'
+gem 'devise-i18n-views'
