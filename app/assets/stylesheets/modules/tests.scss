@@ -340,3 +340,222 @@
 .sell__about__bottom{
 margin-bottom: 20px;
 }
+
+
+//商品詳細CSS
+
+.product-details-main{
+  width:100%;
+  max-height:1700px;
+  background-color:#f8f8f8;
+  display: flex;
+  align-items: center;
+  &__top{
+    width:700px;
+    max-height:1700px;
+    background-color: white;
+    margin:auto;
+    margin-bottom:50px;
+
+    &-name{
+      height:40px;
+      width:620px;
+      font-size:24px;
+      margin:auto;
+      text-align:center;
+      line-height:40px;
+    }
+  .product-details-main__top-image{
+    height:450px;
+    width:620px;
+    margin:auto;
+    li.main-image{
+      margin:auto;
+      width:560px;
+      height:350px;
+      background-image: url('/assets/gyouza.jpg');
+      background-size:560px 350px ;
+      display: block;
+    }
+    .main-sub-list{
+      display: flex;
+      justify-content: center;
+    .main-image1-sub{
+      display: block;
+      width:140px;
+      height:90px;
+      background-image: url('/assets/gyouza.jpg');
+      background-size:140px 90px ; 
+    }
+    .main-image2-sub{
+      display: block;
+      width:140px;
+      height:90px;
+      background-image: url('/assets/niku.jpg');
+      background-size:140px 90px ; 
+    }
+    .main-image3-sub{
+      display: block;
+      width:140px;
+      height:90px;
+      background-image: url('/assets/pasta.jpg');
+      background-size:140px 90px ; 
+    }
+   }
+  }
+  .item-box-price{
+    width:620px;
+    height:45px;
+    margin:auto;
+    text-align: center;
+    font-size:46px;
+    margin-bottom:10px;
+  }
+  .item-box-price-details{
+    height:20px;
+    width:620px;
+    margin:auto;
+    text-align: center;
+    font-size:16px;
+    margin-bottom:30px;
+    
+  }
+  .itemdetails{
+    line-height:1.5;
+    max-height:300px;
+    width:620px;
+    margin:auto;
+    font-size:18px;
+  }
+  .table{
+    height:425px;
+    width:620px;
+    background-color: red;
+    margin:auto;
+    margin-top:30px;
+    display: flex;
+    tr{
+      display: table-row;
+      vertical-align: inherit;
+      border-color: inherit;
+    
+    th.name{
+      height:50px;
+      width:152px;
+      background-color: #fafafa;
+      border: 1px solid #f5f5f5;
+      font-size:14px;
+      color: #333333;
+      padding-left:7px;
+    }
+    td{
+      height:50px;
+      width:467px;
+      background-color: #fff;
+      border: 1px solid #f5f5f5;
+      font-size:14px;
+      color: #333333;
+      text-align:left;
+      padding-left:5px;
+    }
+    th.category{
+      height:94px;
+      width:152px;
+      background-color: #fafafa;
+      border: 1px solid #f5f5f5;
+      font-size:14px;
+      color: #333333;
+      padding-left:7px;
+      .category-btn{
+        display: inline-block;
+        color:#3ccace;
+
+      }
+    }
+    th.brand{
+      height:40px;
+      width:152px;
+      background-color: #fafafa;
+      border: 1px solid #f5f5f5;
+      font-size:14px;
+      color: #333333;
+      padding-left:7px;
+    }  
+    td{
+      height:40px;
+      width:467px;
+      background-color: #fff;
+      border: 1px solid #f5f5f5;
+      font-size:14px;
+      color: #333333;
+      text-align:left;
+      padding-left:5px;
+    }
+    th.condition{
+      height:50px;
+      width:152px;
+      background-color: #fafafa;
+      border: 1px solid #f5f5f5;
+      font-size:14px;
+      color: #333333;
+      padding-left:7px;
+    }
+   }
+  }
+  .product-details-comment-while {
+    width:700px;
+    height:20px;
+    margin:auto;
+    margin-top:50px;
+    background-color:#f8f8f8;
+  }
+  .product-details-comments {
+    width:620px;
+    height:360px;
+    margin:auto;
+    .field-input{
+      margin:auto;
+      .textarea{
+        margin-top:30px;
+        margin-bottom:10px;
+      }
+    }
+    .product-details-comments-note{
+      width:620px;
+      height:58px;
+      padding:13px 0px 13px 5px;
+      color:#000000;
+      font-size:14px;
+      background-color: #f8f8f8;
+      text-align: left;
+      margin-bottom:30px;
+    }
+    .actions{
+      border-radius: 30px;
+      text-align: center;
+      display: block;
+      line-height: 55px;
+      width:400px;
+      height:55px;
+      margin:auto;
+      background-color: #3ccace;
+
+      .submit-btn{
+        color:#fff;
+        font-size: 18px;
+        background-color: #3ccace;
+        border: none;
+      }
+      .comment-icon{
+        color:#fff;
+        font-size: 18px;
+      }
+    }
+  }
+ 
+ }
+}
+  
+a{
+  color: #3ccace;
+}
