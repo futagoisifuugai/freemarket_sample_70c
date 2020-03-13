@@ -18,12 +18,15 @@
               カテゴリー
             %ul.left__item--left
               %li.left__item--left__items
-                = link_to url="#" do
-                  レディース
+                - @parents.each do |parent|
+                  = link_to url="#" do
+                    %p
+                      =parent.name
                 %ul.left__item--left__children
                   %li.left__item--left__children__child
                     = link_to url="#" do
-                      トップス
+                      %p
+                        トップス
                     %ul.left__item--left__grand__children
                       %li.left__item--left__grand__children-child
                         = link_to url="#" do
