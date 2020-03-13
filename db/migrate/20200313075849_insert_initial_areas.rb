@@ -1,4 +1,4 @@
-class InsertInitialSendingMethods < ActiveRecord::Migration[5.2]
+class InsertInitialAreas < ActiveRecord::Migration[5.2]
   def change
     sendings = ["北海道","青森県","岩手県","宮城県","秋田県",
     "山形県",
@@ -44,7 +44,7 @@ class InsertInitialSendingMethods < ActiveRecord::Migration[5.2]
     "鹿児島県",
     "沖縄県"]
     sendings.each do |sending|
-      SendingMethod.create(name: sending)
+      Area.create(name: sending)
     end
   end
 end
