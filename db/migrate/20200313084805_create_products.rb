@@ -8,8 +8,8 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.text :description, null: false
       t.integer :postage_burden, null: false
-      t.references :sending_method, null: false, foreign_key: true
-      t.references :area, null: false, foreign_key: true
+      t.references :sending_method
+      t.references :area
       t.integer :scheduled_sending_date, null: false
       t.integer :price, null: false
       t.references :buyer
@@ -17,7 +17,6 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :payment_method
       t.integer :payment_status
       t.string :recieving_status
- 
 
     end
   end

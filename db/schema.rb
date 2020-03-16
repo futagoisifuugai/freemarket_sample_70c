@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2020_03_16_071850) do
     t.text "description", null: false
     t.integer "postage_burden", null: false
     t.bigint "sending_method_id"
-    t.bigint "area_id", null: false
+    t.bigint "area_id"
     t.integer "scheduled_sending_date", null: false
     t.integer "price", null: false
     t.bigint "buyer_id"
@@ -63,13 +63,11 @@ ActiveRecord::Schema.define(version: 2020_03_16_071850) do
     t.string "payment_method"
     t.integer "payment_status"
     t.string "recieving_status"
-    t.bigint "image_id"
     t.index ["area_id"], name: "index_products_on_area_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["buyer_id"], name: "index_products_on_buyer_id"
     t.index ["categorie_id"], name: "index_products_on_categorie_id"
     t.index ["condition_id"], name: "index_products_on_condition_id"
-    t.index ["image_id"], name: "index_products_on_image_id"
     t.index ["sending_method_id"], name: "index_products_on_sending_method_id"
   end
 
@@ -117,7 +115,7 @@ ActiveRecord::Schema.define(version: 2020_03_16_071850) do
   end
 
   add_foreign_key "images", "products"
-  add_foreign_key "products", "areas"
+  add_foreign_key "products", "brands"
   add_foreign_key "products", "conditions"
   add_foreign_key "user_adresses", "users"
 end
