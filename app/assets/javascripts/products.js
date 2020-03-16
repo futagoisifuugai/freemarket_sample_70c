@@ -32,19 +32,17 @@ $(function() {
           $label = $(".ul-id-" + id),
           $li = $label.children('li')
   
-      // 画像ファイル以外の場合は何もしない
       if(file.type.indexOf("image") < 0){
           return false;
       }
   
-      // ファイル読み込みが完了した際のイベント登録
       reader.onload = (function(file) {
           return function(e) {
-              // liの中を削除する
+              
               $li.empty();
-              // 透過していた領域を表示する
+              
               $label.css('opacity', '1');
-              // 領域の中にロードした画像を表示するimageタグを追加
+              
               $li.append($('<img>').attr({
                   src: e.target.result,
                   width: "114px",
@@ -52,7 +50,7 @@ $(function() {
                   class: "preview",
                   title: file.name,
               }));
-              // 編集削除ボタンを表示する
+              
               $('.btn-box').css('display', 'block');
           };
       })(file);
@@ -62,7 +60,7 @@ $(function() {
 
 
 
-// 削除ボタンクリック
+
   $(this).on("click", ".delete-btn", function() {
       var input = $(this).parent().siblings('input');
       var num = $(input).data('id');
@@ -74,16 +72,6 @@ $(function() {
       return false;
   });
 
-  // $(this).on('click','.delete-btn', function(){
-  //     // index関数を利用して、クリックされたaタグが、div内で何番目のものか特定する。
-  //     // クリックされたaタグの順番から、削除すべき画像を特定し、配列から削除する。
-  //     files_array.splice(index - 1, 1);
-  //     // クリックされたaタグが含まれるli要素をHTMLから削除する。
-  //     $(this).parent().parent().parent().remove();
-  //   });
-
-
-// カテゴリ選択
   $('#parent').change(function() {
       var parent_id = $(this).val();
       $.ajax({
@@ -127,7 +115,7 @@ $(function() {
       .fail(function() {
       });
   });
-  // 金額のところ
+  
   $("#product_price").on("keyup", function() {
       var price = $(this).val();
       var fee = Math.floor(price * 0.1);
@@ -135,7 +123,7 @@ $(function() {
       var profit = price - fee
       $(".sell__about__right__wrap__profit-right").text("¥ " + profit);
   });
-  // 金額編集時の初期データ //2重イベント実現できたら上と合体させる //on("keyup ready",・・・
+ 
   $("#product_price").on("keyup", function(){
       var price = $("#product_price").val();
       var fee_num = Math.floor(price * 0.1);
