@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :tops, only: [:index,:show,:new]  
     
   resources :user_adresses, only: [:index,:new,:create]
-  resources :tests, only: [:index, :show]
+  resources :products
 end

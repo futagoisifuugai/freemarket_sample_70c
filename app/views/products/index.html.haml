@@ -4,7 +4,7 @@
       = image_tag 'http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg', height: '80', width: '185'
 
 .sell
-  = form_for '#' do |f|
+  = form_for(@product) do |f|
     .sell__title 商品の情報を入力
     .sell__image
       = f.label :image, "出品画像"
@@ -14,6 +14,17 @@
         ドラッグアンドドロップ
         %br
         またはクリックしてファイルをアップロード
+        %ul.sell__image-select__ul
+          - @product.images.each_with_index do |image, i|
+            %label{class: "sell__image-select__ul-text ul-id-#{i}"}
+              = f.fields_for :images, image do |img|
+                = img.file_field :image_url, "data-id": "#{i}"
+                %li
+                .btn-box
+                  %a 編集
+                  %a.delete-btn 削除
+          
+
        
     .sell__about
       .sell__about__name
@@ -44,13 +55,12 @@
           = f.label :brand_id, "ブランド"
           %span.required-gray
           .sell__about__right__wrap-box
-            = f.text_field :brand_id, placeholder: "例）シャネル", class: "form"
+            = f.collection_select(:brand_id, Brand.all, :id, :name, prompt: "---", class: "form")
         .sell__about__right__wrap
           = f.label :condition_id, "商品の状態"
           %span.required
           .sell__about__right__wrap-box
-            = f.select :postage_burden, [["新品、未使用",0],["未使用に近い",1],["目立った傷や汚れなし",1],["やや傷や汚れあり",2],["傷や汚れあり",3],["全体的に汚れあり",4]], prompt: "---", class: "select"
-          .sell__about__right__wrap-box
+            = f.collection_select(:condition_id, Condition.all, :id, :name, prompt: "---")
             %i.fas.fa-chevron-down
 
     .sell__about.clearfix
@@ -66,14 +76,15 @@
           = f.label :sending_method_id, "配送の方法"
           %span.required
           .sell__about__right__wrap-box
-            = f.select :scheduled_sending_date, [["佐川急便", 0], ["クロネコヤマト", 1], ["ゆうパック", 2]], prompt: "---", class: "select"
+            = f.collection_select(:sending_method_id, SendingMethod.all, :id, :name, prompt: "---")
             %i.fas.fa-chevron-down
         .sell__about__right__wrap
           = f.label :area_id, "発送元の地域"
           %span.required
           .sell__about__right__wrap-box
-            = f.select :scheduled_sending_date, [["大分県", 0], ["長崎県", 1], ["佐賀県", 2]], prompt: "---", class: "select"
+            = f.collection_select(:area_id, Area.all, :id, :name, prompt: "---")
             %i.fas.fa-chevron-down
+
         .sell__about__right__wrap
           = f.label :scheduled_sending_date, "発送までの日数"
           %span.required
