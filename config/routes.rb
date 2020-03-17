@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     
   resources :user_adresses, only: [:index,:new,:create]
   resources :products
+  resources :tests, only: [:show]
 end
