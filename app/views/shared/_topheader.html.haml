@@ -17,23 +17,11 @@
             = link_to url="#"  do
               カテゴリー
             %ul.left__item--left
-              %li.left__item--left__items
-                = link_to url="#" do
-                  レディース
-                %ul.left__item--left__children
-                  %li.left__item--left__children__child
-                    = link_to url="#" do
-                      トップス
-                    %ul.left__item--left__grand__children
-                      %li.left__item--left__grand__children-child
-                        = link_to url="#" do
-                          %p
-                            Tシャツ
-                        = link_to url="#" do
-                          %p
-                            ポロシャツ
-                        = link_to url="#" do
-                          タンクトップ
+              - @parents.each do |parent|
+                %li.left__item--left__items
+                  = link_to "#{parent.name}", url="#",class: "parent_category",id: "#{parent.id}"
+            %ul.left__item--left__children
+            %ul.left__item--left__grand__children
 
         .right-item
           = link_to url="#" do

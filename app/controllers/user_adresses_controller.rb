@@ -13,7 +13,7 @@ class UserAdressesController < ApplicationController
     if @user_adress.save
       redirect_to user_adresses_path
     else
-      redirect_to new_user_adress_path
+      render :new
     end
   end
 

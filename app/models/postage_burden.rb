@@ -1,0 +1,2 @@
+class PostageBurden < ApplicationRecord
+end

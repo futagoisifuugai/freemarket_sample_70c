@@ -72,7 +72,8 @@
               ul.left__item--left{
                 li.left__item--left__items{
                   display: block;
-                  height: 44px;
+                  height: 50px;
+                  padding-left: 10px;
                 }
               }
             }
@@ -81,57 +82,51 @@
               top: 44px;
               z-index: 1000;
               font-weight: normal;
-              li{
+              li.left__item--left__items{
                 width: 220px;
-                height: 0;
+                height: 50px;
                 display: none;
                 background-color: white;
-                &:hover{
-                  ul.left__item--left__children{
-                    li.left__item--left__children__child{
-                      display: block;
-                      height: 30px;
-                    }
-                  }
-                }
-                ul.left__item--left__children{
-                  position: absolute;
-                  top: 0;
-                  left: 220px;
-                  z-index: 1000;
-                  height: 616px;
+              }
+            }
+            &:hover{
+              ul.left__item--left__children{
+                position: absolute;
+                top:44px;
+                left:220px;
+                width: 220px;
+                z-index: 1000;
+                background-color: white;
+                display: block;
+                li.left__item--left__items{
+                  width: 220px;
+                  height: 50px;
                   background-color: white;
-                  li.left__item--left__children__child{
-                    width: 220px;
-                    height: 0;
-                    display: none;
-                    background-color: white;
-                    &:hover{
-                      ul.left__item--left__grand__children{
-                        li.left__item--left__grand__children-child{
-                          display: block;
-                          height: 30px;
-                        }
-                      }
-                    }
-                    ul.left__item--left__grand__children{
-                      position: absolute;
-                      top: 0;
-                      left: 220px;
-                      z-index: 1000;
-                      height: 616px;
-                      background-color: white;
-                      li.left__item--left__grand__children-child{
-                        width: 300px;
-                        height: 0;
-                        display: none;
-                        background-color: white;
-                      }
-                    }
-                  }
                 }
               }
             }
+            ul.left__item--left__children{
+                display: none;
+            }
+            &:hover{
+              ul.left__item--left__grand__children{
+                position: absolute;
+                top:44px;
+                left:440px;
+                width: 250px;
+                z-index: 1000;
+                background-color: white;
+                display: block;
+                li.left__item--left__grand__children-child{
+                  width: 250px;
+                  height: 50px;
+                  background-color: white;
+                }
+              }
+            }
+            ul.left__item--left__grand__children{
+              display: none;
+          }
           }
         }
         .right-item{
