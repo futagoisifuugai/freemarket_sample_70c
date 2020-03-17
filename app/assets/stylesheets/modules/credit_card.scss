@@ -1,0 +1,46 @@
+.credit-card{
+  float: right;
+  .credit-card_content{
+    width: 700px;
+    text-align: center;
+    background: white;
+    padding: 20px 10px;
+    label{
+      font-size:24px;
+      font-weight:bold;
+      padding:8px 24px;
+      line-height:14px;
+      border-bottom: 1px solid #eee;
+    }
+    .credit-card_number{
+      padding:40px 24px 0px 24px;
+      font-size:20px;
+    }
+    .credit-card_px{
+      padding:6px 24px 20px 24px;
+      font-size:20px;
+    }
+    .credit-card_submit-btn{
+      display: block;
+      max-width: 320px;
+      background-color: #ea352e;
+      line-height:48px;
+      font-size: 14px;
+      margin: 0 auto;
+      text-decoration: none;
+      margin-bottom:50px;
+      margin-top:50px;
+      button{
+        background-color: #ea352e;
+        border: none;
+        color:white;
+        padding:0 130px;
+      }
+      button:hover{
+        cursor: pointer;
+        transition: 5s;
+      }
+    }
+    
+  }
+}
