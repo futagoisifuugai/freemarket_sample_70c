@@ -7,4 +7,5 @@ class UserAdress < ApplicationRecord
   validates :postal_code,presence:true,length: {is:7}
   validates :prefectures,presence:true
   validates :city,presence:true
+  validates :city_adress,presence:true
 end
