@@ -5,7 +5,12 @@
     .single-main-user-form__titles
       住所の登録は初回のみ必要です。２回目以降は登録した住所を利用でき、変更することも可能です。
     .single-main-user-form__inputs
+      
       = form_for @user_adress do |f|
+        - if @user_adress.errors.any? 
+          - @user_adress.errors.full_messages.each do |message| 
+            %p
+              = message
         .field-label
           = f.label :"お名前(全角)"
           .hissu
