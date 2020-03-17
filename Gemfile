@@ -81,4 +81,7 @@ gem 'mini_magick'
 gem 'jquery-rails'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'payjp'
+gem 'dotenv-rails'
 gem 'ancestry'
+

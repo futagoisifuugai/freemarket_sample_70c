@@ -1,5 +1,5 @@
 .card__main
-  = form_tag(method: :post, id: 'charge-form', name: 'inputForm', class: 'main__container') do
+  = form_tag( pay_credit_cards_path,method: :post, id: 'charge-form', name: 'inputForm', class: 'main__container') do
     .main__container__header
       クレジットカード情報入力
     .main__container__form
@@ -8,7 +8,7 @@
           カード番号
         .main__container__form__card__require
           必須
-        = text_field_tag "number", "", maxlength: "16",type: "text", id: 'card_number', placeholder:"半角数字のみ", class: "main__container__form__card__number"
+        = text_field_tag "number", "", maxlength: "16",type: "text", placeholder:"半角数字のみ", class: "number", id: "card_number"
         .main__container__form__card__image
       .main__container__form__limit
         .main__container__form__limit__title
@@ -52,7 +52,7 @@
           セキュリティーコード
         .main__container__form__security__require
           必須
-        = text_field_tag "cvc", "", maxlength: "4",type: "text", id: "cvc", placeholder:"カードの背面4桁もしくは3桁の番号", class: "main__container__form__security__number"
+        = text_field_tag "cvc", "", maxlength: "4",type: "text", id: "cvc", placeholder:"カードの背面4桁もしくは3桁の番号", class: "cvc"
         #card_token
       .main__container__form__question
         .main__container__form__question__mark

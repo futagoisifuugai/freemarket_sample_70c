@@ -101,6 +101,7 @@
 |card_number|integer|null: false|
 |deadline|integer|null: false|
 |security_cord|integer|null: false|
+
 ### Association
 - belongs_to :user
 ## sizesテーブル

@@ -77,7 +77,7 @@
                 プロフィール
                 = icon 'fas', 'chevron-right'
             %li
-              = link_to new_user_adress_path, class: 'mypage-side-bar__list-item' do
+              = link_to '#', class: 'mypage-side-bar__list-item' do
                 発送元・お届け先住所変更
                 = icon 'fas', 'chevron-right'
             %li
@@ -100,5 +100,6 @@
               = link_to '#', class: 'mypage-side-bar__list-item' do
                 ログアウト
                 = icon 'fas', 'chevron-right'
-      = render "shared/mypage_top"
+      = render "shared/credit_card"
   = render "shared/loginfooter"
+  
