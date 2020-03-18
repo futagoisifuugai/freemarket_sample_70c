@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_03_16_071850) do
   end
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "seller_id", null: false
     t.bigint "categorie_id"
     t.string "size"
     t.bigint "brand_id"
@@ -64,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_03_16_071850) do
     t.text "description", null: false
     t.integer "postage_burden", null: false
     t.bigint "sending_method_id"
-    t.bigint "area_id"
+    t.bigint "area_id", null: false
     t.integer "scheduled_sending_date", null: false
     t.integer "price", null: false
     t.bigint "buyer_id"
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 2020_03_16_071850) do
     t.index ["buyer_id"], name: "index_products_on_buyer_id"
     t.index ["categorie_id"], name: "index_products_on_categorie_id"
     t.index ["condition_id"], name: "index_products_on_condition_id"
+    t.index ["seller_id"], name: "index_products_on_seller_id"
     t.index ["sending_method_id"], name: "index_products_on_sending_method_id"
   end
 
@@ -125,7 +127,10 @@ ActiveRecord::Schema.define(version: 2020_03_16_071850) do
 
   add_foreign_key "creditcards", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "products", "areas"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "conditions"
+  add_foreign_key "products", "users", column: "buyer_id"
+  add_foreign_key "products", "users", column: "seller_id"
   add_foreign_key "user_adresses", "users"
 end
