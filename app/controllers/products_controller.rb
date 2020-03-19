@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.includes(:images).order('created_at DESC')
     @product = Product.new
-    5.times { @product.images.build }
+    4.times { @product.images.build }
     @product.images.new
   end
 
@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_path
     else
-      5.times { @product.images.build }
+      4.times { @product.images.build }
       render :index
     end
   end
