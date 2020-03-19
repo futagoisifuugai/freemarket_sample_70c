@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to root_path
     else
+      5.times { @product.images.build }
       render :index
     end
   end
