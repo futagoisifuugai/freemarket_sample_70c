@@ -18,7 +18,6 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :payment_method
       t.integer :payment_status
       t.string :recieving_status
-
     end
   end
 end
