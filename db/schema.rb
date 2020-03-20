@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2020_03_16_071850) do
     t.text "description", null: false
     t.integer "postage_burden", null: false
     t.bigint "sending_method_id"
-    t.bigint "area_id"
+    t.bigint "area_id", null: false
     t.integer "scheduled_sending_date", null: false
     t.integer "price", null: false
     t.bigint "buyer_id"
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 2020_03_16_071850) do
 
   add_foreign_key "creditcards", "users"
   add_foreign_key "images", "products"
+  add_foreign_key "products", "areas"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "conditions"
