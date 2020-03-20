@@ -5,16 +5,28 @@ class ProductsController < ApplicationController
     @product = Product.new
     4.times { @product.images.build }
     @product.images.new
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
   end
 
   def show
-    
   end
 
   def new
   end
 
+  def get_category_children
+    @category_children = Category.find_by(name: params[:parent_name]).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
+  end
+
   def create
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+    @category_parent_array << parent.name
+    end
     @product = Product.new(product_params)
     if @product.save
       redirect_to root_path
@@ -35,8 +47,10 @@ class ProductsController < ApplicationController
 
   private
 
-def product_params
-  params.require(:product).permit(:name, :category_id, :brand_id, :price, :description, :condition_id, :postage_burden, :sending_method_id, :area_id, :scheduled_sending_date, :size, images_attributes: [:image_url]).merge(seller_id: current_user.id)
-end
+
+  def product_params
+    params.require(:product).permit(:name, :category_id, :brand_id, :price, :description, :condition_id, :postage_burden, :sending_method_id, :area_id, :scheduled_sending_date, :size, images_attributes: [:image_url]).merge(seller_id: current_user.id)
+  end
+
 
 end

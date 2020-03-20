@@ -4,6 +4,10 @@
       = image_tag 'http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg', height: '80', width: '185'
 
 .sell
+  - if @product.errors.any? 
+    - @product.errors.full_messages.each do |message| 
+      %p
+        = message
   = form_for(@product) do |f|
     .sell__title 商品の情報を入力
     .sell__image
@@ -37,20 +41,17 @@
         = f.text_area :description, class: "sell__about-description__form", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
     .sell__about.clearfix
       .sell__about__left 商品の詳細
-      .sell__about__right
-        .sell__about__right__wrap
+      .sell__about__righ
+        .sell__about__right__wraps
           = f.label :category_id, "カテゴリー"
           %span.required
           .sell__about__right__wrap-box.parent
-            %select#parent
-              %option{value: 0} ---
-
+            = f.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
         .sell__about__right__wrap
           = f.label :size_id, "サイズ"
-          %span.required
+          %span.required-gray
           .sell__about__right__wrap-box.parent
-            %select#parent
-              %option{value: 0} ---
+            = f.text_field :size, class: "form", placeholder: "サイズを入力して下さい"
         .sell__about__right__wrap
           = f.label :brand_id, "ブランド"
           %span.required-gray
@@ -70,7 +71,7 @@
           = f.label :postage_burden, "配送料の負担"
           %span.required
           .sell__about__right__wrap-box
-            = f.select :postage_burden, [["送料込み(出品者負担)",0],["着払い(購入者負担)",1]], prompt: "選択してください", class: "select"
+            = f.select :postage_burden, [["送料込み(出品者負担)"],["着払い(購入者負担)"]], prompt: "選択してください", class: "select"
             %i.fas.fa-chevron-down
         .sell__about__right__wrap
           = f.label :sending_method_id, "配送の方法"
@@ -89,7 +90,7 @@
           = f.label :scheduled_sending_date, "発送までの日数"
           %span.required
           .sell__about__right__wrap-box
-            = f.select :scheduled_sending_date, [["1~2日で発送", 0], ["2~3日で発送", 1], ["4~7日で発送", 2]], prompt: "---", class: "select"
+            = f.select :scheduled_sending_date, [["1~2日で発送"], ["2~3日で発送"], ["4~7日で発送"]], prompt: "---", class: "select"
             %i.fas.fa-chevron-down
 
     .sell__about.clearfix
