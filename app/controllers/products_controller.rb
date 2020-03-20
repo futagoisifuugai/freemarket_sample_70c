@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   end
 
   def get_category_children
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @category_children = Category.find_by(name: params[:parent_name]).children
   end
 
   def get_category_grandchildren
