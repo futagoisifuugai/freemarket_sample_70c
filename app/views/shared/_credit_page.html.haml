@@ -5,7 +5,7 @@
       .user-card__content__inner--text
         %h3 クレジットカード一覧
       .user-card__content__inner--btn
-        = link_to '#',class: "user-card__content__inner--btn--add" do
+        = link_to new_credit_card_path,class: "user-card__content__inner--btn--add" do
           %i.fas.fa-credit-card
           クレジットカードを追加する
       .user-card__content__inner--help
