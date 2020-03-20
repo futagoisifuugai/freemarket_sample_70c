@@ -30,6 +30,8 @@ set :keep_releases, 5
 
 # credentials.yml.enc用のシンボリックリンクを追加
 
+set :linked_files, %w{ config/credentials.yml.enc }
+
 # 元々記述されていた after 「'deploy:publishing', 'deploy:restart'」以下を削除して、次のように書き換え
 
 after 'deploy:publishing', 'deploy:restart'
@@ -57,3 +59,4 @@ set :default_env, {
   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
 }
+
