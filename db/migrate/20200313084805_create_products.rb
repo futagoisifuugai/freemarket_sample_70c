@@ -1,7 +1,8 @@
 class CreateProducts < ActiveRecord::Migration[5.2]
   def change
     create_table :products do |t|
-      t.references :categorie
+      t.references :seller,null: false, foreign_key:{to_table: :users}
+      t.references :category,null: false, foreign_key: true
       t.string :size
       t.references :brand, foreign_key: true
       t.references :condition, null: false, foreign_key: true
@@ -12,7 +13,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.references :area
       t.integer :scheduled_sending_date, null: false
       t.integer :price, null: false
-      t.references :buyer
+      t.references :buyer, foreign_key:{to_table: :users}
       t.integer :buyed_time
       t.string :payment_method
       t.integer :payment_status
