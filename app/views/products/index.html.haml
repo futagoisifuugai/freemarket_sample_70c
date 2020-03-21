@@ -71,7 +71,7 @@
           = f.label :postage_burden, "配送料の負担"
           %span.required
           .sell__about__right__wrap-box
-            = f.select :postage_burden, [["送料込み(出品者負担)"],["着払い(購入者負担)"]], prompt: "選択してください", class: "select"
+            = f.select :postage_burden, [["送料込み(出品者負担)",0],["着払い(購入者負担)",1]], prompt: "選択してください", class: "select"
             %i.fas.fa-chevron-down
         .sell__about__right__wrap
           = f.label :sending_method_id, "配送の方法"
@@ -90,7 +90,7 @@
           = f.label :scheduled_sending_date, "発送までの日数"
           %span.required
           .sell__about__right__wrap-box
-            = f.select :scheduled_sending_date, [["1~2日で発送"], ["2~3日で発送"], ["4~7日で発送"]], prompt: "---", class: "select"
+            = f.select :scheduled_sending_date,[["1~2日で発送", 0], ["2~3日で発送", 1], ["4~7日で発送", 2]], prompt: "---", class: "select"
             %i.fas.fa-chevron-down
 
     .sell__about.clearfix

@@ -127,7 +127,8 @@
           -else 
             .products
               .products__item-image
-                = link_to image_tag("#{product.images[0][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+                = link_to product_path(product) do
+                  = image_tag("#{product.images[0][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
               .products__item-body
                 .products__item-body__name
                   = product.name
