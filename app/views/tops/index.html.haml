@@ -108,7 +108,7 @@
           -if product.buyer_id.present?
             .products
               .products__item-image
-                =link_to image_tag 'soldout.jpg', height: '100%', width: '100%', class: 'iamge10'
+                =image_tag 'soldout.jpg', height: '100%', width: '100%', class: 'iamge10'
               .products__item-body
                 .products__item-body__name
                   = product.name
@@ -125,25 +125,25 @@
                   %p
                     (税込)
           -else 
-            .products
-              .products__item-image
-                = link_to product_path(product) do
+            = link_to product_path(product) do
+              .products
+                .products__item-image
                   = image_tag("#{product.images[0][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
-              .products__item-body
-                .products__item-body__name
-                  = product.name
-                .products__item-body__data
-                  %ul
-                    %li
-                      = product.price 
-                      円
-                    %li
-                      %i
-                        ⭐️
-                      %i
-                        0
-                  %p
-                    (税込)
+                .products__item-body
+                  .products__item-body__name
+                    = product.name
+                  .products__item-body__data
+                    %ul
+                      %li
+                        = product.price 
+                        円
+                      %li
+                        %i
+                          ⭐️
+                        %i
+                          0
+                    %p
+                      (税込)
   .main__sixth
     .main__sixth--title
       ピックアップブランド
@@ -173,22 +173,23 @@
                   %p 
                     (税込)
           -else
-            .products
-              .products__item-image
-                =link_to image_tag("#{lady.images[0][:image_url]}",  height: '100%', width: '100%', class: 'iamge10')
-              .products__item-body
-                .products__item-body__name
-                  = lady.name
-                .products__item-body__data
-                  %ul
-                    %li
-                      = lady.price
-                      円
-                    %li
-                      %i
-                        ⭐️
-                      %i
-                        0
-                  %p 
-                    (税込)
+            = link_to product_path(lady) do
+              .products
+                .products__item-image
+                  =image_tag("#{lady.images[0][:image_url]}",  height: '100%', width: '100%', class: 'iamge10')
+                .products__item-body
+                  .products__item-body__name
+                    = lady.name
+                  .products__item-body__data
+                    %ul
+                      %li
+                        = lady.price
+                        円
+                      %li
+                        %i
+                          ⭐️
+                        %i
+                          0
+                    %p 
+                      (税込)
 = render 'shared/topfooter'

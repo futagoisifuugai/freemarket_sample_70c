@@ -360,10 +360,26 @@ margin-bottom: 20px;
     &-name{
       height:40px;
       width:620px;
-      font-size:24px;
+      font-size:30px;
       margin:auto;
       text-align:center;
       line-height:40px;
+      padding:10px 0;
+    }
+    &-edit{
+      font-size: 20px;
+      text-align: center;
+      display: flex;
+      float:right;
+      .edit{
+        margin-right:20px;
+      }
+      .destory{
+        margin-right:15px;
+      }
+      a{
+        color: gray;
+      }
     }
   .product-details-main__top-image{
     height:450px;
