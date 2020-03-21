@@ -567,6 +567,27 @@ margin-bottom: 20px;
  }
 }
   
+a{
+  color: #3ccace;
+}
+
+a.sell-product{
+  width: 130px;
+  height: 130px;
+  background: #ec0d0d;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  span.selld-product{
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
 .category-btn{
   color:#3ccace;
   

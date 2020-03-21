@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+      
     @parents = Category.where(ancestry: nil)
     @product = Product.find(params[:id])
     @condition = Condition.find(@product.condition_id)
