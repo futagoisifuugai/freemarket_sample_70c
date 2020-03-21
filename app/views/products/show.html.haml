@@ -1,0 +1,111 @@
+=render 'shared/topheader'
+.product-details-main
+  .product-details-main__top
+    .product-details-main__top-name
+      = @product.name
+    .product-details-main__top-image
+      %ul
+        %li.main-image
+          = image_tag("#{@product.images[0][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+        %ul.main-sub-list
+          - if @product.images[3].present?
+            %li.main-image1-sub
+              = image_tag("#{@product.images[1][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+            %li.main-image2-sub
+              = image_tag("#{@product.images[2][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+            %li.main-image3-sub
+              = image_tag("#{@product.images[3][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+          - elsif @product.images[2].present?
+            %li.main-image1-sub
+              = image_tag("#{@product.images[1][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+            %li.main-image2-sub
+              = image_tag("#{@product.images[2][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+          - elsif @product.images[1].present?
+            %li.main-image1-sub
+              = image_tag("#{@product.images[1][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+          - else
+    .item-box-price
+      %span
+        ¥
+        = @product.price
+    .item-box-price-details
+      %span
+        -if @product.postage_burden == '0'
+          (税込）送料込み
+        -else
+          （税込）着払い
+    .itemdetails
+      = @product.description
+    .table
+      %table
+        %tr
+          %th.name 出品者
+          %td 
+            = @user.nickname
+        %tr
+          %th.category カテゴリー
+          %td.category-list
+            = link_to "#" ,class: "category-btn" do
+              = @category.root.name
+            %br
+            = link_to "#",class: "category-btn" do
+              = @category.parent.name
+            %br
+            = link_to "#",class: "category-btn" do
+              = @category.name
+        %tr
+          %th.brand ブランド 
+          %td 
+            - if @product.brand_id.present?
+              = @brand.name
+            - else
+        %tr
+          %th.brand サイズ
+          %td 
+            - if @product.size.present?
+              = @product.size
+            - else
+        %tr
+          %th.condition 商品状態
+          %td 
+            = @condition.name
+        %tr
+          %th.condition 配送方法
+          %td 
+            = @sending_method.name
+        %tr
+          %th.condition 配送料の負担
+          %td 
+            -if @product.postage_burden == '0'
+              送料込み(出品者負担)
+            -else
+              着払い(購入者負担)
+        %tr
+          %th.condition 発送元の地域
+          %td 
+            = @area.name
+        %tr
+          %th.condition 発送日の目安
+          %td 
+            -if @product.scheduled_sending_date == '0'
+              1~2日で発送
+            -elsif @product.scheduled_sending_date == '1'
+              2~3日で発送
+            -else
+              4~7日で発送
+    .product-details-comment-while 
+    .product-details-comments 
+      .product-details-comments-textarea 
+        = form_for "#" do |f|
+          .field-input
+            = f.text_area :text,rows:8,cols:86  ,class:"textarea"
+          .product-details-comments-note
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br
+            不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          .actions
+            = icon('fas','comment', class: 'comment-icon')
+            = f.submit "コメントする", class: 'submit-btn'
+ 
+= render 'shared/topfooter'
+  

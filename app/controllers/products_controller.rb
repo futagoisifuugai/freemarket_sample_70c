@@ -5,10 +5,24 @@ class ProductsController < ApplicationController
     @product = Product.new
     4.times { @product.images.build }
     @product.images.new
-    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_parent_array = ["---"]
+    Category.where(ancestry: nil).each do |parent|
+    @category_parent_array << parent.name
+    end
   end
 
   def show
+    @parents = Category.where(ancestry: nil)
+    @product = Product.find(params[:id])
+    @condition = Condition.find(@product.condition_id)
+    @area = Area.find(@product.area_id)
+    @sending_method = SendingMethod.find(@product.sending_method_id)
+    @category = Category.find(@product.category_id)
+    @user = User.find(@product.seller_id)
+    if @product.brand_id.present?
+       @brand = Brand.find(@product.brand_id)
+    else
+    end
   end
 
   def new

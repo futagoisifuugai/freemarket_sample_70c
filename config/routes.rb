@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   get 'credit_cards/index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
+    
   }
   root  "tops#index"
   resources :tops, only: [:index,:show,:new]  
     
   resources :user_adresses, only: [:index,:new,:create]
-  resources :tests, only: [:show]
   resources :credit_cards, only: [:index, :new, :show,:delete] do
     collection do
       post 'show', to: 'credit_cards#show'
@@ -20,5 +20,9 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
+  end
+
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
 end
