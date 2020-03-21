@@ -104,120 +104,92 @@
         = link_to url="#",class:"main__fifth--cotegory__top--title" do
           新規投稿商品
       .main__fifth--cotegory__main
-        .products
-          =link_to url="#",class:"products__item" do
-            .products__item-image
-              = image_tag 'sakana.png',  height: '100%', width: '100%', class: 'iamge10'
-            .products__item-body
-              .products__item-body__name
-                product3
-              .products__item-body__data
-                %ul
-                  %li
-                    3000円
-                  %li
-                    %i
-                      ⭐️
-                    %i
-                      0
-                %p 
-                  (税込)
-        .products
-          =link_to url="#",class:"products__item" do
-            .products__item-image
-              = image_tag 'sakana.png',  height: '100%', width: '100%', class: 'iamge10'
-            .products__item-body
-              .products__item-body__name
-                product3
-              .products__item-body__data
-                %ul
-                  %li
-                    3000円
-                  %li
-                    %i
-                      ⭐️
-                    %i
-                      0
-                %p 
-                  (税込)
-        .products
-          =link_to url="#",class:"products__item" do
-            .products__item-image
-              = image_tag 'sakana.png',  height: '100%', width: '100%', class: 'iamge10'
-            .products__item-body
-              .products__item-body__name
-                product3
-              .products__item-body__data
-                %ul
-                  %li
-                    3000円
-                  %li
-                    %i
-                      ⭐️
-                    %i
-                      0
-                %p 
-                  (税込)
+        - @products.each do |product|
+          -if product.buyer_id.present?
+            .products
+              .products__item-image
+                =image_tag 'soldout.jpg', height: '100%', width: '100%', class: 'iamge10'
+              .products__item-body
+                .products__item-body__name
+                  = product.name
+                .products__item-body__data
+                  %ul
+                    %li
+                      = product.price 
+                      円
+                    %li
+                      %i
+                        ⭐️
+                      %i
+                        0
+                  %p
+                    (税込)
+          -else 
+            = link_to product_path(product) do
+              .products
+                .products__item-image
+                  = image_tag product.images[0].image_url.url,height: '100%', width: '100%'
+                .products__item-body
+                  .products__item-body__name
+                    = product.name
+                  .products__item-body__data
+                    %ul
+                      %li
+                        = product.price 
+                        円
+                      %li
+                        %i
+                          ⭐️
+                        %i
+                          0
+                    %p
+                      (税込)
   .main__sixth
     .main__sixth--title
       ピックアップブランド
     .main__sixth--cotegory
       .main__sixth--cotegory__top
         = link_to url="#",class:"main__fifth--cotegory__top--title" do
-          アーカイバ
+          レディース
       .main__sixth--cotegory__main
-        .products
-          =link_to url="#",class:"products__item" do
-            .products__item-image
-              = image_tag 'sakana.png',  height: '100%', width: '100%', class: 'iamge10'
-            .products__item-body
-              .products__item-body__name
-                product3
-              .products__item-body__data
-                %ul
-                  %li
-                    3000円
-                  %li
-                    %i
-                      ⭐️
-                    %i
-                      0
-                %p 
-                  (税込)
-        .products
-          =link_to url="#",class:"products__item" do
-            .products__item-image
-              = image_tag 'sakana.png',  height: '100%', width: '100%', class: 'iamge10'
-            .products__item-body
-              .products__item-body__name
-                product3
-              .products__item-body__data
-                %ul
-                  %li
-                    3000円
-                  %li
-                    %i
-                      ⭐️
-                    %i
-                      0
-                %p 
-                  (税込)
-        .products
-          =link_to url="#",class:"products__item" do
-            .products__item-image
-              = image_tag 'sakana.png',  height: '100%', width: '100%', class: 'iamge10'
-            .products__item-body
-              .products__item-body__name
-                product3
-              .products__item-body__data
-                %ul
-                  %li
-                    3000円
-                  %li
-                    %i
-                      ⭐️
-                    %i
-                      0
-                %p 
-                  (税込)
+        - @ladies.each do |lady|
+          -if lady.buyer_id.present?
+            .products
+              .products__item-image
+                = image_tag 'soldout.jpg',  height: '100%', width: '100%', class: 'iamge10'
+              .products__item-body
+                .products__item-body__name
+                  = lady.name
+                .products__item-body__data
+                  %ul
+                    %li
+                      = lady.price
+                      円
+                    %li
+                      %i
+                        ⭐️
+                      %i
+                        0
+                  %p 
+                    (税込)
+          -else
+            = link_to product_path(lady) do
+              .products
+                .products__item-image
+                  = image_tag lady.images[0].image_url.url,height: '100%', width: '100%'
+                .products__item-body
+                  .products__item-body__name
+                    = lady.name
+                  .products__item-body__data
+                    %ul
+                      %li
+                        = lady.price
+                        円
+                      %li
+                        %i
+                          ⭐️
+                        %i
+                          0
+                    %p 
+                      (税込)
 = render 'shared/topfooter'

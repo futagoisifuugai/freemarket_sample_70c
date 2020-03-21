@@ -1,6 +1,7 @@
 class UserAdressesController < ApplicationController
 
   def index
+    @nickname = current_user.nickname
   end
   
   def new

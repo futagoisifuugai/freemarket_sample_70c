@@ -360,10 +360,26 @@ margin-bottom: 20px;
     &-name{
       height:40px;
       width:620px;
-      font-size:24px;
+      font-size:30px;
       margin:auto;
       text-align:center;
       line-height:40px;
+      padding:10px 0;
+    }
+    &-edit{
+      font-size: 20px;
+      text-align: center;
+      display: flex;
+      float:right;
+      .edit{
+        margin-right:20px;
+      }
+      .destory{
+        margin-right:15px;
+      }
+      a{
+        color: gray;
+      }
     }
   .product-details-main__top-image{
     height:450px;
@@ -466,11 +482,6 @@ margin-bottom: 20px;
       font-size:14px;
       color: #333333;
       padding-left:7px;
-      .category-btn{
-        display: inline-block;
-        color:#3ccace;
-
-      }
     }
     th.brand{
       height:40px;
@@ -577,4 +588,7 @@ a.sell-product{
     text-decoration: none;
     margin-bottom: 5px;
   }
+.category-btn{
+  color:#3ccace;
+  
 }
