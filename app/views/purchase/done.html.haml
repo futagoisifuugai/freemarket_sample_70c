@@ -1,0 +1,23 @@
+=render 'shared/loginheader'
+.buydetailsmein.clearfix
+  %section.buydetails-content
+    %h2.buydetails-content__head 購入が完了しました！
+    %section.buydetails-content__item
+      .buydetails-content__inner
+        %p.buydetails-content__item-name
+          = @product.name
+          %ul.buydetails-content__table
+            %li.buydetails-content__youpay
+              .buydetails-content__pricecell 支払い金額
+              .buydetails-content__pricecell
+                %span.buydetails-content__datapay
+                  ¥
+                  = @product.price
+
+    .buydetails-content__top-btn
+      = link_to root_path,class: "top-product-btn" do
+        トップページに戻る
+        
+
+=render 'shared/loginfooter'
+

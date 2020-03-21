@@ -30,8 +30,15 @@
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-
+    font-size: 14px;
+    font-weight: bold;
     h3{
+      font-size: 14px;
+      font-weight: bold;
+    }
+    h3.user_address_info{
+      margin-top:10px;
+      width:400px;
       font-size: 14px;
       font-weight: bold;
     }
@@ -57,7 +64,6 @@
   }
   &__item-name{
     width: calc(100% - 80px);
-    margin: 0 0 0 16px;
     text-align: left;
     font-size: 12px;
     line-height: 1.5;
