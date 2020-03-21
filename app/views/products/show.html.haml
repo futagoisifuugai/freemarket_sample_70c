@@ -15,23 +15,23 @@
     .product-details-main__top-image
       %ul
         %li.main-image
-          = image_tag("#{@product.images[0][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+          = image_tag @product.images[0].image_url.url,height: '100%', width: '100%'
         %ul.main-sub-list
           - if @product.images[3].present?
             %li.main-image1-sub
-              = image_tag("#{@product.images[1][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+              = image_tag @product.images[1].image_url.url,height: '100%', width: '100%'
             %li.main-image2-sub
-              = image_tag("#{@product.images[2][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+              = image_tag @product.images[2].image_url.url,height: '100%', width: '100%'
             %li.main-image3-sub
-              = image_tag("#{@product.images[3][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+              = image_tag @product.images[3].image_url.url,height: '100%', width: '100%'
           - elsif @product.images[2].present?
             %li.main-image1-sub
-              = image_tag("#{@product.images[1][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+              = image_tag @product.images[1].image_url.url,height: '100%', width: '100%'
             %li.main-image2-sub
-              = image_tag("#{@product.images[2][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+              = image_tag @product.images[2].image_url.url,height: '100%', width: '100%'
           - elsif @product.images[1].present?
             %li.main-image1-sub
-              = image_tag("#{@product.images[1][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+              = image_tag @product.images[1].image_url.url,height: '100%', width: '100%'
           - else
     .item-box-price
       %span

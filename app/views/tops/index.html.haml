@@ -128,7 +128,7 @@
             = link_to product_path(product) do
               .products
                 .products__item-image
-                  = image_tag("#{product.images[0][:image_url]}", height: '100%', width: '100%', class: 'iamge10')
+                  = image_tag product.images[0].image_url.url,height: '100%', width: '100%'
                 .products__item-body
                   .products__item-body__name
                     = product.name
@@ -176,7 +176,7 @@
             = link_to product_path(lady) do
               .products
                 .products__item-image
-                  =image_tag("#{lady.images[0][:image_url]}",  height: '100%', width: '100%', class: 'iamge10')
+                  = image_tag lady.images[0].image_url.url,height: '100%', width: '100%'
                 .products__item-body
                   .products__item-body__name
                     = lady.name
