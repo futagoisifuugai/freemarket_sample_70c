@@ -54,13 +54,15 @@
         %tr
           %th.category カテゴリー
           %td.category-list
-            = link_to "#" ,class: "category-btn" do
+            .category-btn
               = @category.root.name
             %br
-            = link_to "#",class: "category-btn" do
+            .category-btn
+              >
               = @category.parent.name
             %br
-            = link_to "#",class: "category-btn" do
+            .category-btn
+              >
               = @category.name
         %tr
           %th.brand ブランド 
