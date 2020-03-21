@@ -18,6 +18,10 @@ Rails.application.routes.draw do
     end
   end
   resources :products do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
   resources :purchase, only: [:index] do
     collection do
       get 'index', to: 'purchase#index'
@@ -27,11 +31,6 @@ Rails.application.routes.draw do
   end
 end
 
-    collection do
-      get 'get_category_children', defaults: { format: 'json' }
-      get 'get_category_grandchildren', defaults: { format: 'json' }
-    end
-  end
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
