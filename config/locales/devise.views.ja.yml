@@ -12,6 +12,7 @@ ja:
         first_name_kana: "苗字カナ"
         last_name_kana: "名前カナ"
         nickname: "ニックネーム"
+        birthday: "誕生日"
     models:
       user: "ユーザ"
   devise:

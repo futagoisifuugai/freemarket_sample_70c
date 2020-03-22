@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    # @address = UserAdress.find(current_user.id)
     @parents = Category.where(ancestry: nil)
     
     @condition = Condition.find(@product.condition_id)

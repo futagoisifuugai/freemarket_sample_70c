@@ -44,7 +44,7 @@ describe Product do
       expect(product.errors[:sending_method_id]).to include("を入力してください")
     end
 
-    it "配送の方法は、空だと通らない" do
+    it "発送元は、空だと通らない" do
       product = build(:product, area_id: "")
       product.valid?
       expect(product.errors[:area_id]).to include("を入力してください")
