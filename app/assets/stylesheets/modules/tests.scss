@@ -2,6 +2,9 @@
   width: 700px;
   margin: 0 auto;
   background-color: #ffffff;
+  p.messages{
+    color:red;
+  }
   .clearfix::after {
   }
   input:focus, textarea:focus, select:focus {

@@ -1,12 +1,13 @@
 .single-header-user
   .single-header-user-icon-list
     .single-header__icon-user
-      = image_tag 'http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg', height: '80', width: '185'
+      = link_to root_path do
+        = image_tag 'http://furima.tokyo/assets/logo-d3d78326971d78b06e3d6f0ba666d025a8ad681286b4d9e00e7dbe8673bcfd23.svg', height: '80', width: '185'
 
 .sell
   - if @product.errors.any? 
     - @product.errors.full_messages.each do |message| 
-      %p
+      %p.messages
         = message
   = form_for(@product) do |f|
     .sell__title 商品の情報を入力
