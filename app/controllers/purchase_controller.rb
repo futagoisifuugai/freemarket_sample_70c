@@ -5,7 +5,7 @@ class PurchaseController < ApplicationController
   require 'payjp'
   def index
     @product = Product.find(params[:product_id])
-    # @address = UserAdress.find(current_user.id)
+    @address = UserAdress.find(current_user.id)
     card = Creditcard.where(user_id: current_user.id).first
     if card.blank? 
       redirect_to controller: "credit_cards", action: "new" 
@@ -17,8 +17,6 @@ class PurchaseController < ApplicationController
     end
   end
 
- 
-
   def pay
     @product = Product.find(params[:product_id])
     card = Creditcard.where(user_id: current_user.id).first
@@ -28,6 +26,7 @@ class PurchaseController < ApplicationController
     :customer => card.customer_id, 
     :currency => 'jpy', 
   )
+  @product.update(buyer_id: current_user.id)
   redirect_to action: 'done'
   end
 
