@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   }
   root  "tops#index"
   resources :tops, only: [:index,:show,:new]  
-    
   resources :user_adresses, only: [:index,:new,:create]
   resources :credit_cards, only: [:index, :new, :show,:delete] do
     collection do
@@ -15,7 +14,7 @@ Rails.application.routes.draw do
       post 'delete', to: 'credit_cards#delete'
     end
   end
-  resources :products do
+  resources :products, only: [:index,:new, :create, :show, :destroy] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
