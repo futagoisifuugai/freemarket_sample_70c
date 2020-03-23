@@ -10,7 +10,7 @@
           = link_to edit_product_path(@product),class: "edit-btn" do
             編集
         .destory
-          = link_to "#",class: "destory-btn" do
+          = link_to product_path(@product.id),method: :delete,class: "destory-btn" do
             削除
 
     -else
