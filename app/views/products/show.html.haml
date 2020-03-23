@@ -3,15 +3,16 @@
   .product-details-main__top
     .product-details-main__top-name
       = @product.name
-    -if current_user.id == @product.seller_id
-      .product-details-main__top-edit
-        .edit
-          = link_to edit_product_path(@product),class: "edit-btn" do
-            編集
-        .destory
-          = link_to "#",class: "destory-btn" do
-            削除
+    -if user_signed_in?
+      -if current_user.id == @product.seller_id
+        .product-details-main__top-edit
+          .edit
+            = link_to edit_product_path(@product),class: "edit-btn" do
+              編集
+          .destory
+            = link_to "削除",product_path(@product.id), method: :delete,  class: "destory-btn"
     -else
+    %br
     .product-details-main__top-image
       %ul
         %li.main-image
@@ -118,5 +119,71 @@
             = icon('fas','comment', class: 'comment-icon')
             = f.submit "コメントする", class: 'submit-btn'
  
-= render 'shared/topfooter'
+.footer
+  %ul.contents
+    %li.content
+      .content__head
+        FURIMAについて
+      %ul
+        %li
+          =link_to url="#" ,class:"ebtn"do
+            会社概要（運営会社）
+        %li
+          =link_to url="#" ,class:"ebtn"do
+            プライバシーポリシー
+        %li
+          =link_to url="#" ,class:"ebtn"do
+            FURIMA利用規約
+        %li
+          =link_to url="#" ,class:"ebtn"do
+            ポイントに関する特約
+    %li.content
+      .content__head
+        FURIMAを見る
+      %ul
+        %li
+          =link_to url="#" ,class:"fbtn"do
+            カテゴリーー覧
+        %li
+          =link_to url="#" ,class:"gbtn"do
+            ブランドーー覧
+    %li.content
+      .content__head
+        ヘルプ＆ガイド
+      %ul
+        %li
+          =link_to url="#" ,class:"hbtn"do
+            FURIMAガイド
+        %li
+          =link_to url="#" ,class:"ibtn"do
+            FURIMAロゴ利用ガイドライン
+        %li
+          =link_to url="#" ,class:"jbtn"do
+            お知らせ
+  .footer__logo
+    =link_to url="products" ,class:"jbtn"do
+      = image_tag 'furima2.svg',  height: '120', width: '150', class: 'iamge11'
+    %p
+      ©️FURIMA
+-if @product.buyer_id.present?
+  = link_to root_path ,class:"sell-products" do
+    %span.selld-product
+      トップへ
+      %br
+      戻る
+    = image_tag 'icon_camera.png',  height: '70px', width: '70px', class: 'iamge11'
+-else
+  -if UserAdress.where(user_id: current_user.id).present?
+    = link_to product_purchase_index_path(params[:id]),class:"sell-product" do
+      %span.selld-product
+        購入する
+      = image_tag 'icon_camera.png',  height: '70px', width: '70px', class: 'iamge11'
+  -else
+    = link_to new_user_adress_path ,class:"sell-product" do
+      %span.selld-product
+        住所登録
+      = image_tag 'icon_camera.png',  height: '70px', width: '70px', class: 'iamge11'
+  
+
+  
   

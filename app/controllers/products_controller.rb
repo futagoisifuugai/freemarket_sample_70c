@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_item, only: [:destroy, :show]
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
@@ -12,8 +13,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+    # @address = UserAdress.find(current_user.id)
     @parents = Category.where(ancestry: nil)
-    @product = Product.find(params[:id])
+    
     @condition = Condition.find(@product.condition_id)
     @area = Area.find(@product.area_id)
     @sending_method = SendingMethod.find(@product.sending_method_id)
@@ -87,10 +89,12 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.destroy
-  redirect_to root_path
+    if @product.destroy
+      redirect_to root_path
+    else
+      render product_path(product.product.id)
+    end
   end
-
   private
 
 
@@ -99,8 +103,12 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :category_id, :brand_id, :price, :description, :condition_id, :postage_burden, :sending_method_id, :area_id, :scheduled_sending_date, :size, images_attributes: [:image_url,:_destroy, :id]).merge(seller_id: current_user.id)
   end
 
+
   def update_params
     params.require(:product).permit(:name, :category_id, :brand_id, :price, :description, :condition_id, :postage_burden, :sending_method_id, :area_id, :scheduled_sending_date, :size, images_attributes: [:image_url,:_destroy,:id]).merge(seller_id: current_user.id,)if @image.nil?
+  end
+  def set_item
+    @product = Product.find(params[:id])
   end
 
 end
