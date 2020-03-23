@@ -6,6 +6,10 @@
         %nav.mypage-side-bar__nav
           %ul.mypage-side-bar__list
             %li
+              = link_to user_adresses_path, class: 'mypage-side-bar__list-item' do
+                マイページ
+                = icon 'fas', 'chevron-right'
+            %li
               = link_to '#', class: 'mypage-side-bar__list-item' do
                 お知らせ
                 = icon 'fas', 'chevron-right'
@@ -100,7 +104,5 @@
               = link_to '/products/new', class: 'mypage-side-bar__list-item' do
                 ログアウト
                 = icon 'fas', 'chevron-right'
-      = render "shared/card_input"
+      = render "shared/logout"
   = render "shared/loginfooter"
-  
-  
