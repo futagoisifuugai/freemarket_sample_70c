@@ -69,8 +69,11 @@ $(function() {
       var html = buildInputFile(num)
       $(this).parent().parent().append(html);
       $(this).parent().parent().css('opacity', '0');
+      
+      
       return false;
   });
+  
 
   $('#parent').change(function() {
       var parent_id = $(this).val();

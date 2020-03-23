@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_item, only: [:destroy, :show]
+  before_action :set_item, only: [:edit, :destroy, :show]
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
@@ -53,12 +53,30 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
+    image_amount = 5
+    image_amount.freeze
+    num = image_amount - (@product.images.length)
+    num.times { @product.images.build }
+
+    grandchild_category = @product.category
+    child_category = grandchild_category.parent
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_children_array = Category.where(ancestry: child_category.ancestry)
+    @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
+
   end
 
   def new
   end
 
   def update
+    @product = Product.find(params[:id])
+    if @product.update(update_params) && params.require(:product).keys[0] == "images_attributes"
+      redirect_to root_path ,notice: '商品を編集しました'
+    else
+      redirect_to edit_product_path
+    end
   end
 
   def destroy
@@ -72,9 +90,14 @@ class ProductsController < ApplicationController
 
 
   def product_params
-    params.require(:product).permit(:name, :category_id, :brand_id, :price, :description, :condition_id, :postage_burden, :sending_method_id, :area_id, :scheduled_sending_date, :size, images_attributes: [:image_url]).merge(seller_id: current_user.id)
+    @img_attr = params[:product][:images_attributes]
+    params.require(:product).permit(:name, :category_id, :brand_id, :price, :description, :condition_id, :postage_burden, :sending_method_id, :area_id, :scheduled_sending_date, :size, images_attributes: [:image_url,:_destroy, :id]).merge(seller_id: current_user.id)
   end
 
+
+  def update_params
+    params.require(:product).permit(:name, :category_id, :brand_id, :price, :description, :condition_id, :postage_burden, :sending_method_id, :area_id, :scheduled_sending_date, :size, images_attributes: [:image_url,:_destroy,:id]).merge(seller_id: current_user.id,)if @image.nil?
+  end
   def set_item
     @product = Product.find(params[:id])
   end

@@ -3,14 +3,16 @@
   .product-details-main__top
     .product-details-main__top-name
       = @product.name
-    -if user_signed_in?
-      -if current_user.id == @product.seller_id
-        .product-details-main__top-edit
-          .edit
-            = link_to "#",class: "edit-btn" do
-              編集
-          .destory
-            = link_to "削除",product_path(@product.id), method: :delete,  class: "destory-btn"
+
+    -if current_user.id == @product.seller_id
+      .product-details-main__top-edit
+        .edit
+          = link_to edit_product_path(@product),class: "edit-btn" do
+            編集
+        .destory
+          = link_to "#",class: "destory-btn" do
+            削除
+
     -else
     %br
     .product-details-main__top-image
@@ -165,16 +167,25 @@
       = image_tag 'furima2.svg',  height: '120', width: '150', class: 'iamge11'
     %p
       ©️FURIMA
--if UserAdress.where(user_id: current_user.id).present?
-  = link_to product_purchase_index_path(params[:id]),class:"sell-product" do
+-if @product.buyer_id.present?
+  = link_to root_path ,class:"sell-products" do
     %span.selld-product
-      購入する
+      トップへ
+      %br
+      戻る
     = image_tag 'icon_camera.png',  height: '70px', width: '70px', class: 'iamge11'
 -else
-  = link_to new_user_adress_path ,class:"sell-product" do
-    %span.selld-product
-      住所登録
-    = image_tag 'icon_camera.png',  height: '70px', width: '70px', class: 'iamge11'
+  -if UserAdress.where(user_id: current_user.id).present?
+    = link_to product_purchase_index_path(params[:id]),class:"sell-product" do
+      %span.selld-product
+        購入する
+      = image_tag 'icon_camera.png',  height: '70px', width: '70px', class: 'iamge11'
+  -else
+    = link_to new_user_adress_path ,class:"sell-product" do
+      %span.selld-product
+        住所登録
+      = image_tag 'icon_camera.png',  height: '70px', width: '70px', class: 'iamge11'
+  
 
   
   
