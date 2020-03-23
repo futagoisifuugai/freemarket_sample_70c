@@ -3,4 +3,5 @@
     .logout-content
       .logout-content__single
         .logout__content__single--btn
-          <a href="#">ログアウト</a>
+          = link_to destroy_user_session_path,method: :delete do
+            ログアウト

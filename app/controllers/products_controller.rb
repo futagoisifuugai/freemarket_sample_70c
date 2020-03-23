@@ -67,6 +67,9 @@ class ProductsController < ApplicationController
 
   end
 
+  def new
+  end
+
   def update
     @product = Product.find(params[:id])
     if @product.update(update_params) && params.require(:product).keys[0] == "images_attributes"
