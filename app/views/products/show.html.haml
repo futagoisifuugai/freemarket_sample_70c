@@ -6,7 +6,7 @@
     -if current_user.id == @product.seller_id
       .product-details-main__top-edit
         .edit
-          = link_to "#",class: "edit-btn" do
+          = link_to edit_product_path(@product),class: "edit-btn" do
             編集
         .destory
           = link_to "#",class: "destory-btn" do
