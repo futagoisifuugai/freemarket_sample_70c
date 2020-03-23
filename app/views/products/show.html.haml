@@ -6,12 +6,14 @@
 
     -if current_user.id == @product.seller_id
       .product-details-main__top-edit
-        .edit
-          = link_to edit_product_path(@product),class: "edit-btn" do
-            編集
-        .destory
-          = link_to "#",class: "destory-btn" do
-            削除
+        -if @product.buyer_id.present?
+        -else
+          .edit
+            = link_to edit_product_path(@product),class: "edit-btn" do
+              編集
+          .destory
+            = link_to product_path(@product.id),method: :delete,class: "destory-btn" do
+              削除
 
     -else
     %br
