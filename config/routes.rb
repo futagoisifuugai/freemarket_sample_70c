@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       post 'delete', to: 'credit_cards#delete'
     end
   end
-  resources :products, only: [:index,:new, :create, :show, :destroy] do
+  resources :products, only: [:index, :edit, :update, :new, :create, :show, :destroy] do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_item, only: [:destroy, :show]
+  before_action :set_item, only: [:edit, :destroy, :show]
 
   def index
     @products = Product.includes(:images).order('created_at DESC')
@@ -61,22 +61,10 @@ class ProductsController < ApplicationController
 
     grandchild_category = @product.category
     child_category = grandchild_category.parent
+    @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+    @category_children_array = Category.where(ancestry: child_category.ancestry)
+    @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
 
-
-    @category_parent_array = []
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
-
-    @category_children_array = []
-    Category.where(ancestry: child_category.ancestry).each do |children|
-      @category_children_array << children
-    end
-
-    @category_grandchildren_array = []
-    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
-      @category_grandchildren_array << grandchildren
-    end
   end
 
   def update
