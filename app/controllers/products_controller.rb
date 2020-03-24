@@ -75,7 +75,17 @@ class ProductsController < ApplicationController
     if @product.update(update_params) && params.require(:product).keys[0] == "images_attributes"
       redirect_to root_path ,notice: '商品を編集しました'
     else
-      redirect_to edit_product_path
+      image_amount = 5
+      image_amount.freeze
+      num = image_amount - (@product.images.length)
+      num.times { @product.images.build }
+  
+      grandchild_category = @product.category
+      child_category = grandchild_category.parent
+      @category_parent_array = Category.where(ancestry: nil).pluck(:name)
+      @category_children_array = Category.where(ancestry: child_category.ancestry)
+      @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
+      render :edit
     end
   end
 
