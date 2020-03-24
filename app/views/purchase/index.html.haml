@@ -32,16 +32,6 @@
         = @address.city
         = @address.city_adress
 
-        -# %h3.user_address_info 
-        -#   - if @address.blank?
-        -#     = redirect_to controller: "user_adresses", action: "index" 
-        -#   - else
-        -#     %h3.user_address_info 
-        -#       = @address.prefectures
-        -#       = @address.city
-        -#       = @address.city_adress
-       
-
  
     .buydetails-content__text_index
       = form_tag(action: :pay, method: :post) do
