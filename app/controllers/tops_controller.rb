@@ -1,7 +1,7 @@
 class TopsController < ApplicationController
   def index
     @products = Product.limit(3).order('id DESC')
-    @ladies = Product.limit(3).order('id DESC')
+    @ladies = Product.where(category_id: 3).limit(3)
     @parents = Category.where(ancestry: nil)
   end
 
