@@ -179,10 +179,12 @@
 -else
   -if user_signed_in? 
     -if UserAdress.where(user_id: current_user.id).present?
-      = link_to product_purchase_index_path(params[:id]),class:"sell-product" do
-        %span.selld-product
-          購入する
-        = image_tag 'icon_camera.png',  height: '70px', width: '70px', class: 'iamge11'
+      -if current_user.id == @product.seller_id
+      -else
+        = link_to product_purchase_index_path(params[:id]),class:"sell-product" do
+          %span.selld-product
+            購入する
+          = image_tag 'icon_camera.png',  height: '70px', width: '70px', class: 'iamge11'
     -else
       = link_to new_user_adress_path ,class:"sell-product" do
         %span.selld-product
