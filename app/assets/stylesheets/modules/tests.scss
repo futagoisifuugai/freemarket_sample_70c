@@ -392,33 +392,29 @@ margin-bottom: 20px;
       margin:auto;
       width:560px;
       height:350px;
-      background-image: image-url('gyouza.jpg');
       background-size:560px 350px ;
       display: block;
+      margin-bottom: 10px;
     }
     .main-sub-list{
       display: flex;
       justify-content: center;
-      
     .main-image1-sub{
       display: block;
       width:140px;
       height:90px;
-      background-image: image-url('gyouza.jpg');
       background-size:140px 90px ; 
     }
     .main-image2-sub{
       display: block;
       width:140px;
       height:90px;
-      background-image: image-url('niku.jpg');
       background-size:140px 90px ; 
     }
     .main-image3-sub{
       display: block;
       width:140px;
       height:90px;
-      background-image: image-url('pasta.jpg');
       background-size:140px 90px ; 
     }
    }
