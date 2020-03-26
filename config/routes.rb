@@ -32,6 +32,24 @@ Rails.application.routes.draw do
   end
 end
 
+  namespace :api do
+      resources "sell", controller: :products, only: :child, defaults: { format: 'json' } do
+        collection do
+          get 'child'
+        end
+      end
+      resources "sell", controller: :products, only: :grand_child, defaults: { format: 'json' } do
+        collection do
+          get 'grand_child'
+        end
+      end
+      resources "destroy", controller: :products, only: :image_destroy, defaults: { format: 'json' } do
+        collection do
+          delete "image_destroy"
+        end
+      end
+    end
+
 
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
